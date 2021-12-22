@@ -1,11 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./video_item.module.css";
-export default function VideoItem({
-  video,
-  video: { snippet },
-  onVideoClick,
-  display,
-}) {
+function VideoItem({ video, video: { snippet }, onVideoClick, display }) {
   const displayType = display === "list" ? styles.list : styles.grid;
   return (
     <li
@@ -26,3 +21,5 @@ export default function VideoItem({
     </li>
   );
 }
+
+export default memo(VideoItem);
